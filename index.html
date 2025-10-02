@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guía de Carreras — Contador Público / Lic. en Economía</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#2563eb; --glass: rgba(255,255,255,0.03);
+      --gap:1.25rem; --maxw:1100px; --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,#f7fafc 0%, #eef2ff 100%); color:#0b1220;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    header{background:#fff;border-bottom:1px solid #e6eefb;position:sticky;top:0;z-index:60}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:18px;}
+    .hero{
+      display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:28px 0;
+    }
+    .hero-left{flex:1 1 420px;min-width:280px}
+    .hero-right{flex:1 1 420px;min-width:280px;display:flex;justify-content:center}
+    .univ-img{
+      width:100%;max-width:540px;border-radius:14px;overflow:hidden;border:1px solid rgba(11,18,32,0.06);
+      box-shadow:0 6px 20px rgba(11,18,32,0.06);
+    }
+    .controls{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);color:#fff;padding:10px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600;
+      box-shadow:0 6px 14px rgba(37,99,235,0.14);
+    }
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(37,99,235,0.12);box-shadow:none}
+    .btn.small{padding:8px 12px;font-size:14px}
+    nav.topnav{display:flex;gap:12px;flex-wrap:wrap}
+    nav.topnav a{color:var(--accent);text-decoration:none;font-weight:600}
+    main{max-width:var(--maxw);margin:24px auto;padding:0 18px 80px}
+    section.card{
+      background:var(--card);padding:22px;border-radius:var(--radius);margin-bottom:24px;color:#e6eefb;
+      box-shadow: 0 6px 20px rgba(3,7,18,0.06);
+    }
+    .card h2{margin:0 0 8px;font-size:1.6rem;color:#fff}
+    .inline{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .pill{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+    .grid{display:grid;gap:14px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .list{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
+    .univ-list button{display:block;width:100%;text-align:left;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#e6eefb;margin-bottom:8px;cursor:pointer}
+    a.download{display:inline-block;background:#fff;color:var(--card);padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700;border:1px solid rgba(0,0,0,0.06)}
+    a.download.disabled{opacity:0.45;pointer-events:none}
+    footer{max-width:var(--maxw);margin:40px auto;padding:24px 18px;color:var(--muted);font-size:14px}
+    /* Responsive */
+    @media (max-width:860px){ .grid.cols-2{grid-template-columns:1fr} .hero{flex-direction:column} header .wrap{display:flex;flex-direction:column;gap:12px} }
+    .note{font-size:13px;color:var(--muted)}
+    .youtube{aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);background:#000}
+    .anchor{display:inline-block;margin-left:6px;color:var(--muted);font-size:13px}
+    .linklist a{display:block;color:var(--accent);text-decoration:none;margin-bottom:6px}
+    /* smooth scroll */
+    html{scroll-behavior:smooth}
+
+
+    /* gallery */
+    .img-gallery{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .img-gallery img{width:calc(33% - 8px);min-width:120px;border-radius:8px;object-fit:cover;height:120px;border:1px solid rgba(255,255,255,0.03)}
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+    .stat-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:10px;color:#e6eefb}
+    .source{display:block;color:#a6c8ff;font-size:13px;margin-top:6px}
+
+    /* plan expand */
+    .plan-full{display:none;margin-top:12px;white-space:pre-wrap;font-size:14px;color:#e6eefb;line-height:1.45}
+    .plan-toggle{margin-top:12px}
+    .copy-note{margin-top:8px;color:var(--muted);font-size:13px}
+
+    /* small helpers */
+    .kbd{background:rgba(255,255,255,0.04);padding:4px 6px;border-radius:6px;font-weight:700;color:#e6eefb}
+        /* Tierra GIF flotante que baja con el scroll */
+
+    #tierra-gif {
+      position: fixed;
+      top: 550px;
+      right: 20px;
+      width: 100px;
+      height: auto;
+      z-index: 1000;
+      pointer-events: none; /* no interfiere con clics */
+    }
+    .boton-enlace {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton-enlace:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+      <!-- 🌍 GIF de la Tierra girando -->
+    <img src="Tierra.gif" alt="Tierra girando" id="tierra-gif">
+
+
+  <header aria-label="Cabecera">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <div style="display:flex;gap:12px;align-items:center">
+        <strong style="font-size:1.05rem;color:#0b1220">Guía de Carreras • Contador / Econ.</strong>
+        <span class="note">Proyecto 2025 — Córdoba</span>
+      </div>
+      <nav class="topnav" aria-label="Navegación principal">
+        <a href="#motivos">Motivos</a>
+        <a href="#universidades">Universidades</a>
+        <a href="#plan">Plan de Estudio</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#estadisticas">Estadísticas</a>
+        <a href="#fuentes">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- HERO -->
+    <section class="hero wrap" aria-labelledby="titulo-hero">
+      <div class="hero-left">
+        <h1 id="titulo-hero" style="margin:0 0 8px;font-size:2rem">Descubre tu futuro profesional</h1>
+        <p class="note" style="margin:0 0 12px">Elige una de las dos carreras y navega por la información: instituciones, duración, plan de estudio, testimonios y fuentes.</p>
+
+
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div>
+            <button id="btn-contador" class="btn" type="button">Contador Público</button>
+            <button id="btn-economia" class="btn ghost" style="margin-left:6px" type="button">Lic. en Economía</button>
+          </div>
+        </div>
+
+
+        <div class="controls" style="margin-top:14px">
+          <div class="pill" id="selected-pill">Seleccionaste: <strong id="selected-name" style="color:#fff;margin-left:8px">Contador Público</strong></div>
+          <div class="note">Todas las secciones abajo se actualizan según la carrera.</div>
+        </div>
+
+
+        <p style="margin-top:12px" class="note">Nota: Cambia rapido de carrera con 1 o 2</p>
+
+
+      </div>
+
+
+      <div class="hero-right">
+        <!-- imagen inicial universidad (placeholder, reemplazable) -->
+        <figure class="univ-img" aria-hidden="false">
+          <img id="main-univ-img"
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Universidad_Nacional_de_C%C3%B3rdoba_Facultad_de_Psicolog%C3%ADa_Fachada_principal.jpg/1024px-Universidad_Nacional_de_C%C3%B3rdoba_Facultad_de_Psicolog%C3%ADa_Fachada_principal.jpg"
+               alt="Imagen representativa de una universidad (puedes reemplazarla)" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- Motivos / Drive -->
+    <section id="motivos" class="card" aria-labelledby="h-motivos">
+      <h2 id="h-motivos">Motivos / Influencias</h2>
+      <p class="note">Aquí irán los motivos personales y las influencias (factores internos y externos) que explican por qué te interesa cada carrera. Por ahora incluimos el enlace a tu carpeta de Drive y un texto introductorio editable.</p>
+
+
+      <div style="margin-top:12px" class="grid cols-2">
+        <div class="list">
+          <strong>Carpeta con archivos y evidencia:</strong>
+          <p style="margin:8px 0"><a href="https://drive.google.com/drive/folders/1tXLTE9O5ES_k5YWedLPNWIVmYpU3VXSF?usp=sharing" target="_blank" rel="noopener noreferrer" class="download">Abrir carpeta en Drive</a></p>
+
+
+        <div class="list" id="motivos-text">
+          <strong>Motivos / Influencias (ejemplo editable):</strong>
+          <p style="margin-top:8px;color: #e6eefb" id="motivo-parrafo">
+            Me interesa la carrera por la organización, y porque valoro el trabajo orientado a la gestión y al cumplimiento normativo.
+            Factores internos: gusto por el orden, competencia analítica, tolerancia al detalle.
+            Factores externos: demanda profesional en empresas y organismos, posibilidad de matrícula profesional, influencia familiar.
+          </p>
+                  </div>
+      </div>
+    </section>
+
+
+    <!-- Universidades (dinámico) -->
+    <section id="universidades" class="card" aria-labelledby="h-univ">
+      <h2 id="h-univ">Universidades donde estudiar</h2>
+      <p class="note">Se muestran las universidades relacionadas con la carrera seleccionada.</p>
+
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:14px">
+        <div style="flex:1;min-width:260px">
+          <div class="list">
+            <h3 style="margin:0 0 8px" id="universities-title">Universidades (Contador)</h3>
+            <div id="universities-list" class="univ-list" style="margin-top:8px">
+              <!-- llenado por JS -->
+            </div>
+          </div>
+        </div>
+
+
+        <div style="flex:1;min-width:260px">
+          <div class="list">
+            <h3 style="margin:0 0 8px">Información seleccionada</h3>
+            <p id="selected-univ-desc" style="margin:8px 0;color:#e6eefb">(Imagenes con fines ilustrativos)</p>
+            <div id="selected-univ-meta" style="margin-top:12px" class="note"></div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- Galería: más imágenes (imágenes públicas / Wikimedia / Wix) -->
+      <div class="img-gallery" id="img-gallery">
+        <img src="https://static.wixstatic.com/media/1329a7_029d1aa4395a4a4bb38ba377758c0dfb~mv2.png" alt="Universidad imagen 1">
+        <img src="https://static.wixstatic.com/media/1329a7_87eb38fc31ed41a781e5553a73283d5e~mv2.png" alt="Universidad imagen 2">
+        <img src="UCC.jpg" alt="Facultad UNC">
+        <!-- imágenes adicionales (puedes cambiarlas por otras que prefieras) -->
+        <img src="S21.jpg" alt="Campus Siglo 21">
+        <img src="UNC.jpg" alt="UCC building">
+        <img src="UNC2.jpg" alt="Retrato profesional">
+      </div>
+    </section>
+
+
+    <!-- Plan de estudio -->
+    <section id="plan" class="card" aria-labelledby="h-plan">
+      <h2 id="h-plan">Plan de Estudio y Descargas</h2>
+      <p class="note">Aquí puedes descargar el plan de estudio correspondiente a la carrera seleccionada (si el enlace está disponible) y desplegar el plan completo con el botón.</p>
+
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center">
+        <div>
+          <a id="download-plan-1" class="download" target="_blank" rel="noopener noreferrer" href="#">Descargar plan (link 1)</a>
+        </div>
+        <div>
+          <a id="download-plan-2" class="download" target="_blank" rel="noopener noreferrer" href="#">Descargar plan (link 2)</a>
+        </div>
+        <div class="note" style="margin-left:auto">Si el botón aparece deshabilitado, no hay plan disponible en los links proporcionados.</div>
+      </div>
+
+
+      <div style="margin-top:16px" class="list">
+        <strong>Resumen breve del plan activo:</strong>
+        <div id="plan-resume" style="margin-top:8px;color:#e6eefb">Selecciona una carrera para ver el resumen del plan de estudios.</div>
+
+        <div class="plan-toggle">
+          <button id="btn-toggle-plan" class="btn small" type="button" aria-expanded="false" aria-controls="plan-full-content">Ver plan completo</button>
+          <span class="copy-note">Presiona <span class="kbd">1</span> para Contador y <span class="kbd">2</span> para Economía (atajos de teclado).</span>
+        </div>
+
+        <div id="plan-full-content" class="plan-full" aria-hidden="true">
+          <!-- el contenido completo del plan será insertado por JS -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="card" aria-labelledby="h-test">
+      <h2 id="h-test">Testimonios / Entrevistas</h2>
+      <p class="note">Extracto de entrevista (≤ 5 minutos). Los videos / audios mostrados dependen de la carrera seleccionada.</p>
+
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:12px" id="testimonios-grid">
+        <!-- Embeds por JS -->
+      </div>
+    </section>
+
+
+    <!-- Estadísticas -->
+    <section id="estadisticas" class="card" aria-labelledby="h-stats">
+      <h2 id="h-stats">Estadísticas (Argentina) - cifras y fuentes</h2>
+    
+
+      <div class="stat-grid" id="stat-grid">
+        <!-- estadisticas llenadas por JS (ver script abajo) -->
+      </div>
+
+
+      <div class="list" style="margin-top:12px">
+
+      </div>
+    </section>
+
+
+    <!-- Fuentes -->
+    <section id="fuentes" class="card" aria-labelledby="h-fuentes">
+      <h2 id="h-fuentes">Fuentes</h2>
+      <div class="list linklist" style="margin-top:12px">
+        <a href="https://drive.google.com/drive/folders/1tXLTE9O5ES_k5YWedLPNWIVmYpU3VXSF?usp=sharing" target="_blank">Carpeta Drive (tu link)</a>
+        <!-- Actualicé estos enlaces a los que pediste -->
+        <a id="fuente-video-1" href="https://youtu.be/YxD8n4667PQ" target="_blank">Testimonio / video 1 (YouTube)</a>
+        <a id="fuente-video-2" href="https://youtu.be/jyi-ATrlBW8" target="_blank">Testimonio / video 2 (YouTube)</a>
+        <a href="https://www.eco.unc.edu.ar/files/comunicacion/PDFs/2020OC50884_Anexo_Plan_Estudios_2020.pdf" target="_blank">Plan Contador (Anexo 2020) — FCE UNC</a>
+        <a href="https://www.eco.unc.edu.ar/files/comunicacion/archivos/secretaria_asuntos_academicos/reformas%20plan/Plan_economia2009.pdf" target="_blank">Plan Economía (2009) — FCE UNC</a>
+        <a href="https://www.argentina.gob.ar/sites/default/files/sintesis_2021-2022_sistema_universitario_argentino_1.pdf" target="_blank">Síntesis Sistema Universitario 2021-2022 (egresados)</a>
+        <a href="https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_4trim24083C6B9E41.pdf" target="_blank">INDEC — Mercado de Trabajo (EPH) - 4T 2024</a>
+        <a href="https://www.adecco.com/-/media/project/adecco/adeccoar/homepage-reports-and-spotify-icon/gu%C3%ADa-salarial-2024_compressed.pdf" target="_blank">Adecco — Guía Salarial 2024</a>
+        <a href="https://www.randstad.com.ar/s3fs-media/ar/public/2024-04/Reporte%20Salarial%20Randstad%20Argentina%20%28marzo%202024%29%29.pdf?VersionId=j_UgHYg_lmJgowJFSMgdXDDTI_mnabxH" target="_blank">Randstad — Reporte Salarial (Mar 2024)</a>
+        <a href="https://www.glassdoor.com.ar/Sueldos/contador-publico-sueldo-SRCH_KO0%2C16.htm" target="_blank">Glassdoor — Sueldos reportados (Contador)</a>
+        <span class="note" style="display:block;margin-top:8px"></span>
+      </div>
+    </section>
+  </main>
+
+  <a href="Resumen.html" class="boton-enlace">Conclusión</a>
+
+  <script>
+    // ------------------------------------------------------------
+    // DATA (actualizada según tu pedido)
+    // - reemplacé los videos por los nuevos enlaces que pediste
+    // - agregué los planes completos (Contador y Economía)
+    // ------------------------------------------------------------
+    const DATA = {
+      contador: {
+        key: 'contador',
+        name: 'Contador Público',
+        universities: [
+          { id:'unc', name:'Universidad Nacional de Córdoba (UNC)', duration:'5 años', type:'Pública', desc:'Pública y gratuita. Formación en contabilidad, auditoría, impuestos y finanzas; habilita a matricularse como profesional.' },
+          { id:'siglo21', name:'Universidad Siglo 21', duration:'5 años', type:'Privada', desc:'Modalidades presenciales y a distancia, enfoque práctico y orientado al mercado.' },
+          { id:'ucb', name:'Universidad Blas Pascal', duration:'5 años', type:'Privada', desc:'Formación profesional con enfoque aplicado y contacto con empresas.' },
+          { id:'ucc', name:'Universidad Católica de Córdoba (UCC)', duration:'5 años', type:'Privada', desc:'Formación humanística y personalizada; campus integrado.' }
+        ],
+        planLinks: [
+          'https://www.eco.unc.edu.ar/files/comunicacion/PDFs/2020OC50884_Anexo_Plan_Estudios_2020.pdf'
+        ],
+        planSummary: 'El Contador Público se especializa en contabilidad, auditoría, derecho tributario, finanzas y administración. Duración aproximada: 5 años. Salidas: estudios contables, gerencia financiera, auditoría, asesoría impositiva, sector público.',
+        // planFull: texto largo con saltos (se mostrará en la sección desplegable)
+        planFull: `Duración: 5 años
+
+El plan de estudios provee a cada estudiante de:
++ Una sólida base de conocimientos sustantivos en contabilidad e impuestos, apoyados en los pilares jurídicos necesarios para el correcto desempeño de la profesión.
+- Conocimientos teóricos de economía básica: microeconomía, macroeconomía y finanzas públicas, que le permitirán el análisis de la realidad socio-económica regional, nacional e internacional.
+- Contenidos de matemática aplicada: álgebra, análisis, estadística y métodos cuantitativos, que constituyen herramientas para la toma de decisiones.
+- Contenidos de las ciencias sociales y humanas relacionados con la actividad profesional, a los fines de desarrollar en el/la profesional un espíritu crítico y humanista.
+- Principios éticos en todas las asignaturas de la carrera, con especial énfasis en el Seminario de Actuación Profesional.
+
+:: CICLO DE NIVELACIÓN
+• Introducción a la Matemática
+• Introducción a la Contabilidad
+• Introducción a los Estudios Universitarios y a la Economía (IEUyE)
+
+:: CICLO DE FORMACIÓN BÁSICA COMÚN
+Primer semestre
+• Principios y estructura de la economía
+• Matemática I
+• Introducción a la administración
+
+Segundo semestre
+• Contabilidad I
+• Matemática II
+• Microeconomía I
+• Introducción a las ciencias sociales
+
+Tercer semestre
+• Derecho constitucional y administrativo
+• Principios de administración
+• Estadística I
+• Macroeconomía
+
+::  CICLO DE FORMACIÓN PROFESIONAL
+Cuarto semestre
+• Contabilidad II
+• Derecho privado I
+• Estadística II
+• Historia económica y social
+
+Quinto semestre
+• Matemática financiera
+• Contabilidad III
+• Derecho privado II
+• Finanzas públicas
+
+Sexto semestre
+• Administración y sistemas de información gubernamental
+• Métodos cuantitativos para la toma de decisiones
+• Política económica argentina
+• Tecnologías de información I
+
+Séptimo semestre
+• Costo y gestión I
+• Legislación y técnica fiscal I
+• Electiva I
+
+Octavo semestre
+• Costos y gestión II
+• Contabilidad IV
+• Auditoria
+• Derecho laboral y de la seguridad social
+
+Noveno semestre
+• Legislación y técnica fiscal II
+• Administración financiera
+• Análisis de estados contables
+• Sociedades
+
+Décimo semestre
+• Electiva II
+• Derecho concursal y cambiario
+• Legislación y técnica fiscal III.
+• Espacio Final de Integración
+`
+      },
+      economia: {
+        key: 'economia',
+        name: 'Lic. en Economía',
+        universities: [
+          { id:'unc', name:'Universidad Nacional de Córdoba (UNC)', duration:'5 años', type:'Pública', desc:'Formación en micro/macro, econometría, estadísticas y políticas públicas. Fuerte base analítica y de investigación.' },
+          { id:'siglo21', name:'Universidad Siglo 21', duration:'4 años', type:'Privada', desc:'Ofrece flexibilidad y orientación a mercado; modelos aplicados y análisis de datos.' }
+        ],
+        planLinks: [
+          'https://www.eco.unc.edu.ar/files/comunicacion/archivos/secretaria_asuntos_academicos/reformas%20plan/Plan_economia2009.pdf'
+        ],
+        planSummary: 'Lic. en Economía: formación en macro/microeconomía, econometría, análisis estadístico y políticas públicas. Duración: 5 años. Salidas: consultoras, bancos, organismos públicos, investigación, docencia.',
+        planFull: `Duración: 5 años
+
+:: CICLO DE NIVELACIÓN
+• Introducción a la Matemática
+• Introducción a la Contabilidad
+• Introducción a los Estudios Universitarios y a la Economía (IEUyE)
+
+:: CICLO DE FORMACIÓN BÁSICA COMÚN
+Primer semestre
+• Principios y estructura de la economía argentina
+• Matemática I
+• Introducción a la administración.
+
+Segundo semestre
+• Contabilidad I
+• Matemática II
+• Microeconomía
+• Introducción a las ciencias sociales
+
+Tercer semestre 
+• Estadística I
+• Matemática III
+• Macroeconomía I
+• Derecho constitucional y administrativo
+
+:: CICLO DE FORMACIÓN PROFESIONAL 
+Cuarto semestre
+• Historia económica y social
+• Microeconomía II
+• Estadística II
+
+Quinto semestre 
+• Macroeconomía II
+• Estadística III
+• Microeconomía III
+
+Sexto semestre
+• Economía industrial
+• Finanzas públicas
+• Econometría I
+
+Séptimo semestre 
+• Economía internacional
+• Evaluación de proyectos de inversión
+• Economía monetaria
+
+Octavo semestre 
+• Historia económica argentina
+• Política Fiscal
+• Asignatura electiva
+
+Noveno semestre 
+• Política macroeconómica en Argentina
+• Historia del pensamiento y del análisis económico
+• Asignatura electiva
+• Asignatura electiva
+
+Décimo semestre 
+• Asignatura electiva
+• Asignatura electiva
+• Asignatura electiva
+• Trabajo Final
+`
+      },
+      testimonios: {
+        // reemplacé las referencias por los nuevos videos que pediste (embed)
+        contador: [
+          { title:'Entrevista - Contador (ejemplo)', url:'https://www.youtube.com/embed/YxD8n4667PQ' }
+        ],
+        economia: [
+          { title:'Entrevista - Economista (ejemplo)', url:'https://www.youtube.com/embed/jyi-ATrlBW8' }
+        ]
+      }
+    };
+
+
+    // UI refs
+    const btnContador = document.getElementById('btn-contador');
+    const btnEconomia = document.getElementById('btn-economia');
+    const selectedName = document.getElementById('selected-name');
+    const universitiesList = document.getElementById('universities-list');
+    const universitiesTitle = document.getElementById('universities-title');
+    const selectedUnivDesc = document.getElementById('selected-univ-desc');
+    const selectedUnivMeta = document.getElementById('selected-univ-meta');
+    const download1 = document.getElementById('download-plan-1');
+    const download2 = document.getElementById('download-plan-2');
+    const planResume = document.getElementById('plan-resume');
+    const testimoniosGrid = document.getElementById('testimonios-grid');
+    const imgGallery = document.getElementById('img-gallery');
+    const statGrid = document.getElementById('stat-grid');
+    const btnTogglePlan = document.getElementById('btn-toggle-plan');
+    const planFullContainer = document.getElementById('plan-full-content');
+
+    // state
+    let active = localStorage.getItem('carrera') || 'contador';
+    let planOpen = false;
+
+
+    function setActive(careerKey){
+      active = careerKey;
+      localStorage.setItem('carrera', active);
+      // UI toggles
+      if(active === 'contador'){
+        btnContador.classList.remove('ghost'); btnContador.classList.add('btn');
+        btnEconomia.classList.add('ghost');
+        selectedName.textContent = DATA.contador.name;
+        document.getElementById('main-univ-img').src = 'Contador.jpg';
+      } else {
+        btnEconomia.classList.remove('ghost'); btnEconomia.classList.add('btn');
+        btnContador.classList.add('ghost');
+        selectedName.textContent = DATA.economia.name;
+        document.getElementById('main-univ-img').src = 'Lic..jpg';
+      }
+      // fill universities
+      renderUniversities();
+      // plan links & text
+      renderPlanSection();
+      // testimonios
+      renderTestimonios();
+      // statistics
+      renderStatistics();
+      // reset scroll highlight if any
+    }
+
+
+    function renderUniversities(){
+      const dataset = (active === 'contador') ? DATA.contador : DATA.economia;
+      universitiesTitle.textContent = 'Universidades (' + dataset.name + ')';
+      universitiesList.innerHTML = '';
+      dataset.universities.forEach(u=>{
+        const btn = document.createElement('button');
+        btn.textContent = u.name + ' — ' + u.duration;
+        btn.addEventListener('click',()=> {
+          selectedUnivDesc.textContent = u.desc;
+          selectedUnivMeta.innerHTML = `<strong>Tipo:</strong> ${u.type} &nbsp; • &nbsp; <strong>Duración:</strong> ${u.duration}`;
+          // scroll to meta
+          selectedUnivMeta.scrollIntoView({behavior:'smooth',block:'center'});
+        });
+        universitiesList.appendChild(btn);
+      });
+      // clear selected meta
+      selectedUnivDesc.textContent = 'Haz clic en una universidad para ver su descripción, duración y modalidad.';
+      selectedUnivMeta.innerHTML = '';
+      // gallery update (light)
+      // (keeping images already set in HTML)
+    }
+
+
+    function renderPlanSection(){
+      const dataset = (active === 'contador') ? DATA.contador : DATA.economia;
+      // set download links (only first link supported)
+      if(dataset.planLinks && dataset.planLinks.length){
+        download1.href = dataset.planLinks[0];
+        download1.classList.remove('disabled');
+        download1.textContent = (active==='contador') ? 'Descargar Plan Contador (2020)' : 'Descargar Plan Economía (2009)';
+        // second link - not provided separately; keep disabled
+        download2.href = '#';
+        download2.classList.add('disabled');
+        download2.textContent = 'No disponible';
+      } else {
+        download1.href = '#'; download2.href = '#';
+        download1.classList.add('disabled'); download2.classList.add('disabled');
+        download1.textContent = 'No disponible';
+        download2.textContent = 'No disponible';
+      }
+      // plan text
+      planResume.textContent = dataset.planSummary;
+      // fill full plan container
+      planFullContainer.textContent = dataset.planFull;
+      // if plan was open, keep it open and update aria-expanded
+      if(planOpen){
+        planFullContainer.style.display = 'block';
+        planFullContainer.setAttribute('aria-hidden','false');
+        btnTogglePlan.setAttribute('aria-expanded','true');
+        btnTogglePlan.textContent = 'Ocultar plan completo';
+      } else {
+        planFullContainer.style.display = 'none';
+        planFullContainer.setAttribute('aria-hidden','true');
+        btnTogglePlan.setAttribute('aria-expanded','false');
+        btnTogglePlan.textContent = 'Ver plan completo';
+      }
+    }
+
+
+    function renderTestimonios(){
+      testimoniosGrid.innerHTML = '';
+      const vids = (active === 'contador') ? DATA.testimonios.contador : DATA.testimonios.economia;
+      vids.forEach(v=>{
+        const card = document.createElement('div');
+        card.className = 'list';
+        const title = document.createElement('strong'); title.textContent = v.title;
+        const wrap = document.createElement('div'); wrap.className='youtube'; wrap.style.marginTop='8px';
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%'; iframe.height = '100%'; iframe.src = v.url;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true; iframe.style.border=0;
+        wrap.appendChild(iframe);
+        card.appendChild(title);
+        card.appendChild(wrap);
+        testimoniosGrid.appendChild(card);
+      });
+    }
+
+
+    // ---- Estadísticas: valores y fuentes (obtenidos de fuentes oficiales y consultoras) ----
+    // Los links se muestran debajo de cada dato.
+    function renderStatistics(){
+      statGrid.innerHTML = '';
+
+      // 1) Egresados del sistema universitario (2021) - Síntesis 2021-2022
+      const s1 = document.createElement('div'); s1.className='stat-card';
+      s1.innerHTML = `<strong>Egresados en el sistema universitario (año 2021)</strong>
+        <p style="margin-top:8px">Total de egresadas/os (pregrado, grado y posgrado) registrados en la Síntesis 2021-2022: <strong>159.368</strong>.</p>
+        <a class="source" href="https://www.argentina.gob.ar/sites/default/files/sintesis_2021-2022_sistema_universitario_argentino_1.pdf" target="_blank" rel="noopener noreferrer">Fuente: Síntesis Sistema Universitario 2021-2022 (SPU)</a>`;
+      statGrid.appendChild(s1);
+
+      // 2) Tasa de desocupación abierta (EPH) - 4° trim 2024 (INDEC)
+      const s2 = document.createElement('div'); s2.className='stat-card';
+      s2.innerHTML = `<strong>Tasa de desocupación abierta (Argentina) — 4° trimestre 2024</strong>
+        <p style="margin-top:8px">INDEC (EPH) informa una tasa de desocupación abierta de <strong>6.4%</strong> en el 4° trimestre de 2024 (total 31 aglomerados urbanos).</p>
+        <a class="source" href="https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_4trim24083C6B9E41.pdf" target="_blank" rel="noopener noreferrer">Fuente: INDEC — Mercado de trabajo (EPH), 4° trim 2024 (Informe)</a>`;
+      statGrid.appendChild(s2);
+
+      // 3) Tasa de empleo (EPH) - 4° trim 2024
+      const s3 = document.createElement('div'); s3.className='stat-card';
+      s3.innerHTML = `<strong>Tasa de empleo (Argentina) — 4° trimestre 2024</strong>
+        <p style="margin-top:8px">INDEC reporta una tasa de empleo de <strong>45.7%</strong> (total 31 aglomerados urbanos) en el 4° trimestre de 2024.</p>
+        <a class="source" href="https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_4trim24083C6B9E41.pdf" target="_blank" rel="noopener noreferrer">Fuente: INDEC — Mercado de trabajo (EPH), 4° trim 2024 (Informe)</a>`;
+      statGrid.appendChild(s3);
+
+      // 4) Guía salarial - Adecco (contexto de rangos en Finance & Legal)
+      const s4 = document.createElement('div'); s4.className='stat-card';
+      s4.innerHTML = `<strong>Guía salarial (Adecco, 2024) — contexto Finance & Legal</strong>
+        <p style="margin-top:8px">Adecco publica rangos salariales y tendencias por sector (Finance & Legal) que sirven como referencia para posiciones junior/senior en Contabilidad y Finanzas. Útil para estimar rangos y comparar por industria.</p>
+        <a class="source" href="https://www.adecco.com/-/media/project/adecco/adeccoar/homepage-reports-and-spotify-icon/gu%C3%ADa-salarial-2024_compressed.pdf" target="_blank" rel="noopener noreferrer">Fuente: Adecco — Guía Salarial 2024 (PDF)</a>`;
+      statGrid.appendChild(s4);
+
+      // 5) Reporte salarial Randstad (rango y tendencias)
+      const s5 = document.createElement('div'); s5.className='stat-card';
+      s5.innerHTML = `<strong>Reporte Salarial (Randstad) — tendencias 2024</strong>
+        <p style="margin-top:8px">Randstad publica reportes con rangos salariales por cargo y tendencias (ajustes, beneficios, modalidad híbrida). Sirve como complemento para estimar sueldos de Economistas y Contadores en el mercado argentino.</p>
+        <a class="source" href="https://www.randstad.com.ar/s3fs-media/ar/public/2024-04/Reporte%20Salarial%20Randstad%20Argentina%20%28marzo%202024%29%29.pdf?VersionId=j_UgHYg_lmJgowJFSMgdXDDTI_mnabxH" target="_blank" rel="noopener noreferrer">Fuente: Randstad — Reporte Salarial (Mar 2024)</a>`;
+      statGrid.appendChild(s5);
+
+      // 6) Sueldos reportados (ejemplo: Glassdoor — Contador)
+      const s6 = document.createElement('div'); s6.className='stat-card';
+      s6.innerHTML = `<strong>Sueldos reportados (ejemplo — Glassdoor)</strong>
+        <p style="margin-top:8px">Glassdoor muestra valores autoinformados: por ejemplo, la categoría "Contador" registra promedios/anuales reportados (usar como referencia orientativa, es autoinformado).</p>
+        <a class="source" href="https://www.glassdoor.com.ar/Sueldos/contador-publico-sueldo-SRCH_KO0%2C16.htm" target="_blank" rel="noopener noreferrer">Fuente: Glassdoor — Sueldos (consulta pública)</a>`;
+      statGrid.appendChild(s6);
+    }
+
+
+    // event listeners
+    btnContador.addEventListener('click',()=> setActive('contador'));
+    btnEconomia.addEventListener('click',()=> setActive('economia'));
+
+    btnTogglePlan.addEventListener('click',()=>{
+      planOpen = !planOpen;
+      if(planOpen){
+        planFullContainer.style.display = 'block';
+        planFullContainer.setAttribute('aria-hidden','false');
+        btnTogglePlan.setAttribute('aria-expanded','true');
+        btnTogglePlan.textContent = 'Ocultar plan completo';
+      } else {
+        planFullContainer.style.display = 'none';
+        planFullContainer.setAttribute('aria-hidden','true');
+        btnTogglePlan.setAttribute('aria-expanded','false');
+        btnTogglePlan.textContent = 'Ver plan completo';
+      }
+    });
+
+
+    // initial render
+    setActive(active);
+
+
+    // optional: highlight sections on scroll (small helper)
+    const sectionIds = ['motivos','universidades','plan','testimonios','estadisticas','fuentes'];
+    window.addEventListener('hashchange',()=>{
+      const id = location.hash.replace('#','');
+      if(sectionIds.includes(id)){
+        document.getElementById(id).style.transition='background 0.3s';
+        document.getElementById(id).style.background='linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))';
+        setTimeout(()=>{document.getElementById(id).style.background=''},600);
+      }
+    });
+
+
+    // small accessibility: keyboard select toggle
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === '1'){ setActive('contador'); }
+      if(e.key === '2'){ setActive('economia'); }
+      if(e.key === 'p' || e.key === 'P'){ // atajo para desplegar plan
+        btnTogglePlan.click();
+      }
+    });
+
+  </script>
+
+
+</body>
+</html>

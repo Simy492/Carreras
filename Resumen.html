@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador vs Economía – Orientación Vocacional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --color-contador: #004aad;
+      --color-economia: #008f4c;
+      --color-bg: #f4f6f9;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      background: var(--color-bg);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, var(--color-contador), var(--color-economia));
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav button {
+      border: none;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    nav button.active {
+      background: var(--color-contador);
+      color: white;
+    }
+    nav button.economia.active {
+      background: var(--color-economia);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+    .note {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    #main-univ-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 0.8rem;
+      transition: opacity 0.4s ease;
+    }
+    #main-univ-img.fade-out {
+      opacity: 0;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .stat-card {
+      background: #fafafa;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    .stat-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stat-card h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--color-contador);
+    }
+    .stat-card p {
+      margin: 0.4rem 0 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .btn.small {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      margin: 0.2rem;
+      background: #eee;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+    .btn.small:hover {
+      background: #ddd;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f1f1f1;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contador Público vs Lic. en Economía</h1>
+    <p>Descubrí cuál carrera se adapta mejor a vos</p>
+  </header>
+
+  <nav>
+    <button id="btn-contador" class="active">Contador Público</button>
+    <button id="btn-economia" class="economia">Lic. en Economía</button>
+  </nav>
+
+  <main>
+    <!-- CONCLUSIÓN -->
+    <section class="card">
+      <h2>Conclusión</h2>
+      <p class="note">Durante el transcurso del proyecto, me mantuve con los mismos pensamientos sobre mis intereses a la hora de elegir una futura proxima carrera. Creo que este trabajo no fue tan util para poder elegir una carrera sino que fue más para prepararnos para lo que podria ser esta futura carrera.
+Desde el cuadernillo que era un trabajo de introspección hasta ahora que investigamos cómo podria ser nuestro futuro, todo formó parte de un autoconocimiento, desde el que me gustaria ser hasta el me vería haciendo esto.
+</p>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="card">
+      <h2>📊 Datos Clave</h2>
+      <div id="stats" class="stat-grid"></div>
+    </section>
+
+    <!-- TEST VOCACIONAL -->
+    <section class="card" id="vocacional">
+      <h2>🤔 Mini Test Vocacional</h2>
+      <p class="note">3 preguntas rápidas para sugerirte una carrera.</p>
+      <div id="quiz">
+        <div id="q1" class="quiz-step">
+          <p>1️⃣ ¿Qué preferís?</p>
+          <button class="btn small" data-career="contador">Analizar balances y leyes</button>
+          <button class="btn small" data-career="economia">Modelar fenómenos económicos</button>
+        </div>
+        <div id="q2" class="quiz-step" style="display:none">
+          <p>2️⃣ ¿Qué te motiva más?</p>
+          <button class="btn small" data-career="contador">Ejercer como profesional matriculado</button>
+          <button class="btn small" data-career="economia">Investigar y asesorar políticas públicas</button>
+        </div>
+        <div id="q3" class="quiz-step" style="display:none">
+          <p>3️⃣ ¿En qué entorno te ves trabajando?</p>
+          <button class="btn small" data-career="contador">Estudio contable / empresa privada</button>
+          <button class="btn small" data-career="economia">Consultoras / organismos públicos</button>
+        </div>
+        <div id="quiz-result" style="display:none;margin-top:12px;font-weight:600"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 – Página vocacional creada para orientación educativa
+  </footer>
+
+  <script>
+    const btnContador = document.getElementById('btn-contador');
+    const btnEconomia = document.getElementById('btn-economia');
+    const statsDiv = document.getElementById('stats');
+
+    const data = {
+      contador: {
+        stats: [
+          { num: '5', text: 'Años de duración' },
+          { num: '$450.000', text: 'Salario promedio mensual (ARG)' },
+          { num: 'Alta', text: 'Demanda laboral' },
+          { num: '100%', text: 'Matriculación obligatoria' }
+        ]
+      },
+      economia: {
+        stats: [
+          { num: '5', text: 'Años de duración' },
+          { num: '$520.000', text: 'Salario promedio mensual (ARG)' },
+          { num: 'Media-Alta', text: 'Demanda laboral' },
+          { num: 'No', text: 'No requiere matrícula obligatoria' }
+        ]
+      }
+    };
+
+    function setActive(career){
+      btnContador.classList.toggle('active', career==='contador');
+      btnEconomia.classList.toggle('active', career==='economia');
+      renderStatistics(career);
+    }
+
+    function renderStatistics(career){
+      statsDiv.innerHTML = '';
+      data[career].stats.forEach(s=>{
+        const div = document.createElement('div');
+        div.className = 'stat-card';
+        div.innerHTML = `<h3>${s.num}</h3><p>${s.text}</p>`;
+        statsDiv.appendChild(div);
+      });
+      // efecto cascada
+      const cards = statsDiv.querySelectorAll('.stat-card');
+      cards.forEach((card,i)=>{
+        setTimeout(()=>card.classList.add('show'), i*120);
+      });
+    }
+
+    btnContador.onclick = ()=> setActive('contador');
+    btnEconomia.onclick = ()=> setActive('economia');
+    renderStatistics('contador');
+
+    // QUIZ VOCACIONAL
+    const quizSteps = document.querySelectorAll('.quiz-step');
+    let contadorScore = 0, economiaScore = 0, currentStep = 0;
+
+    quizSteps.forEach(step=>{
+      step.addEventListener('click', e=>{
+        if(e.target.matches('button[data-career]')){
+          const choice = e.target.getAttribute('data-career');
+          if(choice==='contador') contadorScore++;
+          else economiaScore++;
+          step.style.display = 'none';
+          currentStep++;
+          if(currentStep < quizSteps.length){
+            quizSteps[currentStep].style.display = 'block';
+          } else {
+            const result = document.getElementById('quiz-result');
+            result.style.display = 'block';
+            const recommended = contadorScore >= economiaScore ? 'contador' : 'economia';
+            result.textContent = (recommended==='contador')
+              ? '🎓 Recomendación: Contador Público'
+              : '📈 Recomendación: Lic. en Economía';
+            setActive(recommended);
+            result.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
